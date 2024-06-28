@@ -12,7 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 @Service     //It makes the class eligible for component scanning and allows Spring to manage it as a bean.
-public class JWTUtil {
+public class JwtUtil {
 
 	private String secret = "btechdays";
 	
@@ -57,7 +57,7 @@ public class JWTUtil {
 	}
 	
 	
-	private Boolean validateToken(String token , UserDetails userDetails) {
+	Boolean validateToken(String token , UserDetails userDetails) {
 		final String username = extraxtUsername(token);
 		return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
 	}

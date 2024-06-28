@@ -36,7 +36,7 @@ private static final long serialVersionUID=1L;
 	private String name;
 	
 	@Column(name = "contactNumber")
-	private String conatctNumber;
+	private String contactNumber;
 	
 	@Column(name = "email")
 	private String email;
@@ -67,11 +67,11 @@ private static final long serialVersionUID=1L;
 	}
 
 	public String getConatctNumber() {
-		return conatctNumber;
+		return contactNumber;
 	}
 
 	public void setConatctNumber(String conatctNumber) {
-		this.conatctNumber = conatctNumber;
+		this.contactNumber = conatctNumber;
 	}
 
 	public String getEmail() {
@@ -111,7 +111,7 @@ private static final long serialVersionUID=1L;
 		super();
 		this.id = id;
 		this.name = name;
-		this.conatctNumber = conatctNumber;
+		this.contactNumber = conatctNumber;
 		this.email = email;
 		this.password = password;
 		this.status = status;

@@ -77,7 +77,7 @@ public class SecurityConfig {  //this class is depricated
 		.and()
         .csrf().disable()
         .authorizeRequests()
-        .requestMatchers("/user/login", "/user/forgotPassword") //, "/user/signup"
+        .requestMatchers("/user/login", "/user/signup" , "/user/forgotPassword")
         .permitAll()
         .anyRequest()
         .authenticated()

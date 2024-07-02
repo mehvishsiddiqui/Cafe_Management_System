@@ -16,7 +16,9 @@ import lombok.Data;
 
 
 @NamedQuery(name = "User.findByEmailId" , query ="select u from User u where u.email=:email")
-
+@NamedQuery(name = "User.getAllUser", query = "select new com.inn.cafe.wrapper.UserWrapper(u.id,u.name,u.email,u.contactNumber, u.status) from User u  where u.role='user'")
+@NamedQuery(name = "User.updateStatus" , query= "update User u set u.status=:status where u.id=:id")
+@NamedQuery(name = "User.getAllAdmin", query = "select u.email from User u  where u.role='admin'")
 
 @Data
 @Entity
@@ -29,25 +31,26 @@ private static final long serialVersionUID=1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name ="id")
+	
+	@Column (name = "id")
 	private Integer id;
 	
-	@Column(name = "name")
+	@Column (name = "name")
 	private String name;
 	
-	@Column(name = "contactNumber")
+	@Column (name = "contactNumber")
 	private String contactNumber;
 	
-	@Column(name = "email")
+	@Column (name = "email")
 	private String email;
 	
-	@Column(name = "password")
+	@Column (name = "password")
 	private String password;
 	
-	@Column(name = "status")
+	@Column (name = "status")
 	private String status;
 	
-	@Column(name = "role")
+	@Column (name = "role")
 	private String role;
 	
 	public Integer getId() {
@@ -66,12 +69,12 @@ private static final long serialVersionUID=1L;
 		this.name = name;
 	}
 
-	public String getConatctNumber() {
+	public String getContactNumber() {
 		return contactNumber;
 	}
 
-	public void setConatctNumber(String conatctNumber) {
-		this.contactNumber = conatctNumber;
+	public void setContactNumber(String contactNumber) {
+		this.contactNumber = contactNumber;
 	}
 
 	public String getEmail() {
@@ -106,12 +109,12 @@ private static final long serialVersionUID=1L;
 		this.role = role;
 	}
 
-	public User(Integer id, String name, String conatctNumber, String email, String password, String status,
+	public User(Integer id, String name, String contactNumber, String email, String password, String status,
 			String role) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.contactNumber = conatctNumber;
+		this.contactNumber = contactNumber;
 		this.email = email;
 		this.password = password;
 		this.status = status;

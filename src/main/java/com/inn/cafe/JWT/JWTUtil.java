@@ -17,7 +17,7 @@ public class JwtUtil {
 	private String secret = "btechdays";
 	
 	
-	public String extraxtUsername(String token) {
+	public String extractUsername(String token) {
 		return extractClaims(token , Claims::getSubject);
 	}
 	
@@ -58,7 +58,7 @@ public class JwtUtil {
 	
 	
 	Boolean validateToken(String token , UserDetails userDetails) {
-		final String username = extraxtUsername(token);
+		final String username = extractUsername(token);
 		return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
 	}
 }

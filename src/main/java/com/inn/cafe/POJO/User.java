@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
+import org.springframework.stereotype.Component;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -22,6 +23,7 @@ import lombok.Data;
 
 @Data
 @Entity
+@Component
 @DynamicUpdate
 @DynamicInsert
 @Table(name = "user")
